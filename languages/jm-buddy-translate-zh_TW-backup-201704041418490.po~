@@ -1,0 +1,67 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: JSM's User Locale 1.2.1-1\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/jsm-user-locale\n"
+"POT-Creation-Date: 2017-04-04 14:12+0000\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"PO-Revision-Date: 2017-04-04 14:17+0000\n"
+"Last-Translator: acefadm <acef@inkston.com>\n"
+"Language-Team: \n"
+"Language: zh_TW\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Loco https://localise.biz/"
+
+#: jm-buddy-translate.php:89 jm-buddy-translate.php:95
+#: jm-buddy-translate.php:100
+msgid "Translate"
+msgstr ""
+
+#: jm-buddy-translate.php:136
+msgid "Google Translation"
+msgstr ""
+
+#: jm-buddy-translate.php:138
+msgid "open in Google Translate"
+msgstr ""
+
+#: jm-buddy-translate.php:141
+msgid "close"
+msgstr ""
+
+#: jm-buddy-translate.php:168
+#, php-format
+msgid "%1$s requires %2$s version %3$s or higher and has been deactivated."
+msgstr ""
+
+#: jm-buddy-translate.php:170
+#, php-format
+msgid "Please upgrade %1$s before trying to reactivate the %2$s plugin."
+msgstr ""
+
+#: jm-buddy-translate.php:183 jm-buddy-translate.php:192
+msgid "translate"
+msgstr ""
+
+#. Name of the plugin
+msgid "JM Buddy Translate"
+msgstr ""
+
+#. Description of the plugin
+msgid ""
+"Adds a translate menu item in the WordPress admin back-end admin and front-"
+"end toolbar menus which translates selected text to current translate."
+msgstr ""
+
+#. URI of the plugin
+msgid "https://github.com/Jon007jm-buddy-translate/"
+msgstr ""
+
+#. Author of the plugin
+msgid "Jonathan Moore"
+msgstr ""
+
+#. Author URI of the plugin
+msgid "https://jonmoblog.wordpress.com/"
+msgstr ""

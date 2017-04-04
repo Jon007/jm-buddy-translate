@@ -1,0 +1,71 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: JSM's User Locale 1.2.1-1\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/jsm-user-locale\n"
+"POT-Creation-Date: 2017-04-04 14:12+0000\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"PO-Revision-Date: 2017-04-04 14:14+0000\n"
+"Last-Translator: acefadm <acef@inkston.com>\n"
+"Language-Team: Spanish (Spain)\n"
+"Language: es-ES\n"
+"Plural-Forms: nplurals=2; plural=n != 1\n"
+"X-Generator: Loco - https://localise.biz/"
+
+#: jm-buddy-translate.php:89 jm-buddy-translate.php:95
+#: jm-buddy-translate.php:100
+msgid "Translate"
+msgstr "Traducir"
+
+#: jm-buddy-translate.php:136
+msgid "Google Translation"
+msgstr "Traducción de Google"
+
+#: jm-buddy-translate.php:138
+msgid "open in Google Translate"
+msgstr "abrir en Google Translate"
+
+#: jm-buddy-translate.php:141
+msgid "close"
+msgstr "cerrar"
+
+#: jm-buddy-translate.php:183 jm-buddy-translate.php:192
+msgid "translate"
+msgstr "traducir"
+
+#. Name of the plugin
+msgid "JM Buddy Translate"
+msgstr ""
+
+#. Description of the plugin
+msgid ""
+"Adds a translate menu item in the WordPress admin back-end admin and front-"
+"end toolbar menus which translates selected text to current translate."
+msgstr ""
+"Agrega un elemento de menú de traducción en los menús de administración de "
+"WordPress y los menús de la barra de herramientas front-end que convierte el "
+"texto seleccionado a la idioma actual."
+
+#. URI of the plugin
+msgid "https://github.com/Jon007jm-buddy-translate/"
+msgstr ""
+
+#. Author of the plugin
+msgid "Jonathan Moore"
+msgstr ""
+
+#. Author URI of the plugin
+msgid "https://jonmoblog.wordpress.com/"
+msgstr ""
+
+#: jm-buddy-translate.php:168
+#, php-format
+msgid "%1$s requires %2$s version %3$s or higher and has been deactivated."
+msgstr "%1$s requiere %2$s versión %3$s o mas y entonces se ha desactivado."
+
+#: jm-buddy-translate.php:170
+#, php-format
+msgid "Please upgrade %1$s before trying to reactivate the %2$s plugin."
+msgstr ""
+"Por favor actualizar %1$s antes de intentar reactivar el complemento %2$s."

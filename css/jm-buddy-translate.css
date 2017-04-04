@@ -1,0 +1,55 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 03-Apr-2017, 17:04:33
+    Author     : jon
+*/
+
+.spinner{
+	-webkit-animation:spin 3s linear infinite;
+	-moz-animation:spin 3s linear infinite;
+	animation:spin 3s linear infinite;
+}
+@-moz-keyframes spin { 100% { -moz-transform: rotate(360deg); } }
+@-webkit-keyframes spin { 100% { -webkit-transform: rotate(360deg); } }
+@keyframes spin { 100% { -webkit-transform: rotate(360deg); transform:rotate(360deg); } }
+
+#bTranslateContainer{
+	background-color: rgba(254,254,254,0.8);
+	border:1px solid #dd3333;
+	display:block;
+	margin-top: 31px;
+	color: black;	
+	display:none;
+}
+#bTranslateHeader{
+	padding-left:10em;
+}
+#bTranslateContainer a:hover{
+	color:#dd3333;
+	font-weight:bolder;
+}
+#bTranslateResult{
+	padding-left:2em;
+	line-height: 1em;
+}
+#bTranslateContainer .ab-icon{
+	float:none;
+}
+#bTranslateContainer .ab-icon::before{
+	color:#dd3333;
+	vertical-align: middle;
+}
+#bTranslateContainer .ab-icon{font: normal 20px/1 dashicons;}
+@media (max-width: 1000px){
+#bTranslateHeader{padding-left:1em;}
+#bTranslateResult{padding-left:1em; }
+.bigscreen-caption{display:none}
+}
+@media screen and ( max-width: 782px ) {
+	#wpadminbar #bTranslateContainer .ab-icon{font: normal 20px/1 dashicons!important;}
+	#wpadminbar li#wp-admin-bar-jm-buddy-translate{display:block}
+}
