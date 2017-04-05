@@ -20,20 +20,19 @@ Quick and easy translate your buddypress messages.
 
 == Description ==
 
-<strong>Adds a translate menu item in the WordPress admin back-end admin and front-end toolbar menus which translates selected text to current locale.</strong>
+Adds a translate menu item in the WordPress admin back-end admin and front-end toolbar menus which translates selected text to current locale.
 
-<strong>Perfect for a multilingual Buddypress site, this tool allows you to translate messages in other languages to your own language.</strong>
-Other tools translate the whole site but this isn’t desirable for polyglots and language learners: if you are practicing conversing in the language, it’s best to see the original, and translate only where necessary.
+Perfect for a multilingual Buddypress site, this tool allows you to translate messages in other languages to your own language.
+Other tools translate the whole site but a polyglots and language learner may not want this, for learning it’s best to see the original, and translate only where necessary.
+Or the whole site may be already translated to your preferred language but you are getting messages from other users (or from some untranslated plugin) and you want to translate those.
 
 Currently uses Google Translate.
 
-<blockquote>
-<p>There are no plugin settings &mdash; simply install and activate the plugin.</p>
-</blockquote>
+There are no plugin settings - simply install and activate the plugin.
 
 = Power-Users / Developers =
 
-See the plugin [Other Notes](https://wordpress.org/plugins/jsm-user-locale/other_notes/) page for information on available filters.
+Each element in the popup translation window has a separate id so it can be restyled easily.
 
 = Do you use the BuddyPress plugin? =
 
@@ -44,7 +43,6 @@ If the BuddyPress plugin is active, the tool will attempt to add translate optio
 This tools is tested with and recommended for:
 BuddyPress Version 2.8.2
 bbPress Version 2.5.12
-BuddyPress Docs Version 1.9.3
 The tool is intended to add translate links for messages and docs with these tools.
 For other inputs, the Admin Bar translate button still allows translation of selected text.
 
@@ -94,7 +92,7 @@ TODO: coming soon..
 
 == Screenshots ==
 
-TODO: coming soon..
+see assets directory
 
 == Changelog ==
 
@@ -132,4 +130,4 @@ Note that the production stage level can be incremented on occasion for simple t
 
 = 1.0 =
 
-(2017/04/10) Initial release.
+(2017/04/05) Initial release.
