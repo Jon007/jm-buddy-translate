@@ -71,7 +71,7 @@ if ( ! class_exists( 'JM_Buddy_Translate' ) ) {
 			add_action('admin_head', array( __CLASS__, 'jm_buddy_translate_register_head'));
 			add_action('wp_enqueue_scripts', array( __CLASS__, 'jm_buddy_translate_scripts_method'));
 			add_action('wp_footer', array( __CLASS__, 'jm_buddy_translate_footer'));
-			add_action('admin_menu', array( __CLASS__, 'jm_buddy_translate_footer'));
+			add_action('in_admin_footer', array( __CLASS__, 'jm_buddy_translate_footer'));
 
 			/**
 			 * add translate to menu bar if option set
@@ -215,12 +215,12 @@ if ( ! class_exists( 'JM_Buddy_Translate' ) ) {
 			 * Menu Icon and Title
 			 */
 			$dashicon = apply_filters( 'jm_buddy_translate_menu_dashicon', 326, $menu_translate );
-
+			$menu_icon = '';
 			if ( ! empty( $dashicon ) && $dashicon !== 'none' ) {
 				if ( isset( self::$dashicons[$dashicon] ) ) {		// just in case
 					$menu_icon = '<span id="translate-icon" title="' . __( 'translate', 'jm-buddy-translate' ) . '" class="ab-icon dashicons-'.self::$dashicons[$dashicon].'"></span>';
-				} else $menu_icon = '';
-			} else $menu_icon = '';
+				}
+			}
 
 			$menu_title = apply_filters( 'jm_buddy_translate_menu_title', '%s', $menu_translate );
 			$menu_title = sprintf( $menu_title, $menu_translate );
@@ -439,5 +439,4 @@ if ( ! class_exists( 'JM_Buddy_Translate' ) ) {
 
 
 JM_Buddy_Translate::get_instance();
-
 ?>

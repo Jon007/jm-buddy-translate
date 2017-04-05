@@ -14,7 +14,7 @@ Tags: user, locale, language, translate, back-end, front-end, buddypress
 Contributors: jsmoriss
 Requires At Least: 4.7
 Tested Up To: 4.7.3
-Stable Tag: 1.0.1
+Stable Tag: 1.0.2
 
 Quick and easy translate your buddypress messages.
 
@@ -134,8 +134,13 @@ Note that the production stage level can be incremented on occasion for simple t
 
 
 == Upgrade Notice ==
+= 1.0.2 =
+(2017/04/06) Minor fixes:
+- Change to load sequence for admin views due to some "headers already sent" type issues.
+- removed https from google translate link to allow use in non-SSL site
+
 = 1.0.1 =
 (2017/04/05) Patching for Internet Explorer compatibility.
 
 = 1.0 =
-(2017/04/05) Initial release.
+(2017/04/04) Initial release.

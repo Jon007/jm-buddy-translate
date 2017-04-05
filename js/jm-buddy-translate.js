@@ -245,7 +245,7 @@ function btGoogleGet(parentEl, q, sourceLang, targetLang) {
 		/* LanguageApp would be the Google Apps way to do it */
 		//var translatedText = LanguageApp.translate(sourceText, sourceLang, targetLang)
 		/* URL Option */  
-		var url = "https://translate.googleapis.com/translate_a/single?client=gtx&sl=" 
+		var url = "//translate.googleapis.com/translate_a/single?client=gtx&sl=" 
 							+ sourceLang + "&tl=" + targetLang + "&dt=t&q=" + encodeURI(q);
 		//example url: "https://translate.googleapis.com/translate_a/single?client=gtx&sl=en&tl=es&dt=t&q=translate%20me"
 		var href="http://translate.google.cn/#" + mapGoogleLanguageCode(sourceLang) + '/' + mapGoogleLanguageCode(targetLang) + '/' + encodeURI(q);
@@ -262,7 +262,12 @@ function btGoogleGet(parentEl, q, sourceLang, targetLang) {
 				//actually if we get here the result may be valid JSON, so could be parsed as such
 				//but this has not happened...
 				translateResult=btExtractText(data);
-
+				var element = jQuery('#bTranslateResult');
+				element.text(translateResult);
+				element.html(element.text().replace(/\\n\\n/g,'<br />').replace(/\\n/g,'<br />'));
+				element = jQuery('#bTranslateContainer').detach();
+				parentEl.append(element);
+				element.css("display","block");
 				// Send warning log message if response took longer than 2 seconds
 				/*
 				var msAfterAjaxCall = new Date().getTime();
