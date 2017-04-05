@@ -1,12 +1,27 @@
 <?php
+/**
+ * jm-buddy-translate translation helper library
+ * settings.php manages options
+ *
+ * @package jm-buddy-translate
+ * @subpackage jm_buddy_translate_plugin_options
+ * @link https://github.com/Jon007/jm-buddy-translate/tree/master/
+ *
+ * @author Jonathan Moore <jonathan.moore@bcs.org>
+ * @version 1.0.1
+ * @since 1.0
+ */
 if(preg_match('#' . basename(__FILE__) . '#', $_SERVER['PHP_SELF'])) {
 	die('Illegal Entry');
 }
 
-//============================== BuddyTranslate options ========================//
 class jm_buddy_translate_plugin_options {
 
-	//Defaults
+	/**
+	 * get saved options or default values
+	 * 
+	 * @return array array of option-value key pairs
+	 */
 	public static function btranslate_getOptions() {
 
 		//Pull from WP options database table
@@ -22,9 +37,14 @@ class jm_buddy_translate_plugin_options {
 		return $options;
 	}
 
-
+	/**
+	 * save options from post values (eg when submitting settings form)
+	 * 
+	 * @return bool False if value was not updated and true if value was updated.
+	 */
 	public static function update() {
-
+		$retval=false;
+		
 		if(isset($_POST['jm_buddy_translate_save'])) {
 
 			$options = jm_buddy_translate_plugin_options::btranslate_getOptions();
@@ -53,16 +73,20 @@ class jm_buddy_translate_plugin_options {
 				$options['bbpress_translate'] = (bool)false;
 			}
 
-			update_option('jm_buddy_translate_options', $options);
+			$retval = update_option('jm_buddy_translate_options', $options);
 
 		} else {
 			jm_buddy_translate_plugin_options::btranslate_getOptions();
 		}
 
 		add_submenu_page( 'options-general.php', 'BuddyTranslate options', 'BuddyTranslate', 'edit_theme_options', basename(__FILE__), array('jm_buddy_translate_plugin_options', 'display'));
+		
+		return $retval;
 	}
 
-
+	/**
+	 * display plugin settings page
+	 */
 	public static function display() {
 
 		$options = jm_buddy_translate_plugin_options::btranslate_getOptions();
@@ -72,7 +96,7 @@ class jm_buddy_translate_plugin_options {
 
 			<h2>JM-Buddy-Translate Options</h2>
 
-			<p>JM-Buddy-Translate is a translation helper tool from Jonathan Moore.  <a href="https://jonmoblog.wordpress.com/">JM-Buddy-Translate</a></p>
+			<p>JM-Buddy-Translate is a translation helper tool from <a target="_blank" href="https://jonmoblog.wordpress.com/">Jonathan Moore</a>.  <a target="_blank" href="https://github.com/Jon007/jm-buddy-translate/">JM-Buddy-Translate</a></p>
 
 			<form method="post" action="#" enctype="multipart/form-data">
 
@@ -125,6 +149,7 @@ class jm_buddy_translate_plugin_options {
 
 // register functions
 add_action('admin_menu', array('jm_buddy_translate_plugin_options', 'update'));
+
 /**
  * Settings link that appears on the plugins overview page
  * @param array $links

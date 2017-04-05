@@ -14,7 +14,7 @@ Tags: user, locale, language, translate, back-end, front-end, buddypress
 Contributors: jsmoriss
 Requires At Least: 4.7
 Tested Up To: 4.7.3
-Stable Tag: 1.0
+Stable Tag: 1.0.1
 
 Quick and easy translate your buddypress messages.
 
@@ -80,7 +80,11 @@ The translation tool uses User Locale as the target language: if you enable JSMâ
 
 = Frequently Asked Questions =
 
-* None
+* Internet Explorer may warn/fail on being unable to check certficate revocation for googleapis.com
+It is possible to accept and continue or to turn off certificate revocation check
+* Microsoft Edge may give XMLHttpRequest error for the same reasons
+
+It's preferable to use Chrome, Firefox, Safari, Opera etc to avoid problems with Microsoft browsers.
 
 == Other Notes ==
 
@@ -113,8 +117,11 @@ Version components: `{major}.{minor}.{bugfix}-{stage}{level}`
 Note that the production stage level can be incremented on occasion for simple text revisions and/or translation updates. See [PHP's version_compare()](http://php.net/manual/en/function.version-compare.php) documentation for additional information on "PHP-standardized" version numbering.
 
 = Changelog / Release Notes =
+**Version 1.0.1 (2017/04/05)**
+* *Bugfixes*
+	* removed JS parameter default values for Internet Explorer compatibility
 
-**Version 1.0 (2017/04/10)**
+**Version 1.0 (2017/04/05)**
 
 * *New Features*
 	* First version
@@ -127,7 +134,8 @@ Note that the production stage level can be incremented on occasion for simple t
 
 
 == Upgrade Notice ==
+= 1.0.1 =
+(2017/04/05) Patching for Internet Explorer compatibility.
 
 = 1.0 =
-
 (2017/04/05) Initial release.

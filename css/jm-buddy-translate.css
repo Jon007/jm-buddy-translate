@@ -1,12 +1,13 @@
-/*
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
-*/
-/* 
-    Created on : 03-Apr-2017, 17:04:33
-    Author     : jon
-*/
+/**
+ * jm-buddy-translate translation helper library
+ *
+ * @package jm-buddy-translate
+ * @link https://github.com/Jon007/jm-buddy-translate/tree/master/css/
+ *
+ * @author Jonathan Moore <jonathan.moore@bcs.org>
+ * @version 1.0.1
+ * @since 1.0
+ */
 
 .spinner{
 	-webkit-animation:spin 3s linear infinite;

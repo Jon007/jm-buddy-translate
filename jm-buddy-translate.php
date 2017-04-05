@@ -3,8 +3,9 @@
  * Plugin Name: JM Buddy Translate
  * Text Domain: jm-buddy-translate
  * Domain Path: /languages
- * Plugin URI: https://github.com/Jon007jm-buddy-translate/
- * Assets URI: https://github.com/Jon007jm-buddy-translate/assets/
+ * Version: 1.0.1
+ * Plugin URI: https://github.com/Jon007/jm-buddy-translate/
+ * Assets URI: https://github.com/Jon007/jm-buddy-translate/assets/
  * Author: Jonathan Moore
  * Author URI: https://jonmoblog.wordpress.com/
  * License: GPLv3
@@ -14,7 +15,7 @@
  * Contributors: jonathanmoorebcsorg
  * Requires At Least: 4.7
  * Tested Up To: 4.7.3
- * Stable Tag: 1.0
+ * Stable Tag: 1.0.1
  * Version Components: {major}.{minor}.{bugfix}-{stage}{level}
  *
  *	{major}		Major code changes / re-writes or significant feature changes.
@@ -37,8 +38,9 @@
  * Copyright 2017 Jonathan Moore (https://jonmoblog.wordpress.com/)
  */
 
-if ( ! defined( 'ABSPATH' ) ) 
+if ( ! defined( 'ABSPATH' ) ){ 
 	die( 'Nothing to see here...' );
+}
 
 include_once( plugin_dir_path(__FILE__) . 'btranslate-settings.php' );
 
@@ -50,7 +52,9 @@ if ( ! class_exists( 'JM_Buddy_Translate' ) ) {
 		private static $wp_min_version = 4.7;
 
 
-		//enqueue scripts and hook buttons according to the options set
+		/**
+		 * enqueue scripts and hook buttons according to the options set
+		 */
 		public function __construct() {
 			
 			$options = get_option('jm_buddy_translate_options');
@@ -69,11 +73,15 @@ if ( ! class_exists( 'JM_Buddy_Translate' ) ) {
 			add_action('wp_footer', array( __CLASS__, 'jm_buddy_translate_footer'));
 			add_action('admin_menu', array( __CLASS__, 'jm_buddy_translate_footer'));
 
-			//add translate to menu bar if option set
+			/**
+			 * add translate to menu bar if option set
+			 */
 			if ( $options['menubar_translate'] ){
 				add_action( 'wp_before_admin_bar_render', array( __CLASS__, 'add_translate_toolbar' ) );
 			}
-			//add translate buttons to buddypress if option set
+			/**
+			 * add translate buttons to buddypress if option set
+			 */
 			if ($options['buddypress_translate'] ){
 				add_action( 'bp_activity_entry_meta', array( __CLASS__, 'add_activity_translate_button' ) );
 				add_action( 'bp_after_message_meta', array( __CLASS__, 'add_message_translate_button' ) );				
@@ -84,31 +92,39 @@ if ( ! class_exists( 'JM_Buddy_Translate' ) ) {
 			
 	}
 
-		//hooked: bp_after_message_meta - called from eg buddypress/activity/entry.php
+		/**
+		 * hooked: bp_after_message_meta - called from eg buddypress/activity/entry.php
+		 */
 		public static function add_bbp_translate_button(){
 			?><a href="#" class="button acomment-translate" onmousedown="javascript:btnTranslatebbp(jQuery(this));return false;" onclick="javascript:return false;"><?php printf( __( 'Translate', 'jm-buddy-translate' ) ); ?></a><?php
 		}
 		
 		
-		//hooked: bp_after_message_meta - called from eg buddypress/activity/entry.php
+		/**
+		 * hooked: bp_after_message_meta - called from eg buddypress/activity/entry.php
+		 */
 		public static function add_message_translate_button(){
 			?><a href="#" class="button acomment-translate" onmousedown="javascript:btnTranslateMessage(jQuery(this));return false;" onclick="javascript:return false;"><?php printf( __( 'Translate', 'jm-buddy-translate' ) ); ?></a><?php
 		}
-		//hooked: bp_activity_entry_meta - called from eg buddypress/activity/entry.php
-		//after other activity action buttons
+		/**
+		 * hooked: bp_activity_entry_meta - called from eg buddypress/activity/entry.php
+		 * after other activity action buttons
+		 */
 		public static function add_activity_translate_button(){
 			?><a href="#" class="button acomment-translate" onmousedown="javascript:btnTranslateActivity(jQuery(this));return false;" onclick="javascript:return false;"><?php printf( __( 'Translate', 'jm-buddy-translate' ) ); ?></a><?php
 		}
-		//called in admin mode: do any extra admin stuff then our standard Front End scripts
+		/**
+		 * called in admin mode: do any extra admin stuff then our standard Front End scripts
+		 */
 		public static function jm_buddy_translate_register_head() {
 			self::jm_buddy_translate_scripts_method();
 		}
 
-		//including .min versions unless SCRIPT_DEBUG defined
-		//using file timestamp as version
+		/**
+		 * adds .min versions of scripts unless SCRIPT_DEBUG defined 
+		 * also uses file timestamp as version to force update when changed
+		 */
 		public static function jm_buddy_translate_scripts_method() {
-
-			$options = get_option('jm_buddy_translate_options');
 	
 			$suffix = defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ? '' : '.min';
 
@@ -129,7 +145,9 @@ if ( ! class_exists( 'JM_Buddy_Translate' ) ) {
 		}
 
 
-		//footer to add to every page for translation placeholder
+		/**
+		 * adds placeholder divs for translation result layout 
+		 */
 		public static function jm_buddy_translate_footer() {
 				echo('<div id="bTranslateContainer">' . 
 								'<div id="bTranslateHeader"><span id="bTranslateTitle">' .  
@@ -144,15 +162,22 @@ if ( ! class_exists( 'JM_Buddy_Translate' ) ) {
 						    '<div id="bTranslateResult"></div></div>');
 		}
 		public static function &get_instance() {
-			if ( ! isset( self::$instance ) )
+			if ( ! isset( self::$instance ) ){
 				self::$instance = new self;
+			}
 			return self::$instance;
 		}
 
+		/**
+		 * load translations
+		 */
 		public static function load_textdomain() {
 			load_plugin_textdomain( 'jm-buddy-translate', false, 'jm-buddy-translate/languages/' );
 		}
 
+		/**
+		 * deactivates plugin if Wordpress version < 4.7
+		 */
 		public static function check_wp_version() {
 			global $wp_version;
 			if ( version_compare( $wp_version, self::$wp_min_version, '<' ) ) {
@@ -174,10 +199,14 @@ if ( ! class_exists( 'JM_Buddy_Translate' ) ) {
 			}
 		}
 
+		/**
+		 * adds translation to top menu bar
+		 */
 		public static function add_translate_toolbar() {
 			//exit if not logged in
-			if ( ! $user_id = get_current_user_id() )
+			if ( ! $user_id = get_current_user_id() ){
 				return;			
+			}
 			
 			global $wp_admin_bar;
 			$menu_translate = '<span class="bigscreen-caption">' . __( 'translate', 'jm-buddy-translate' ) . '</span>';
@@ -208,14 +237,13 @@ if ( ! class_exists( 'JM_Buddy_Translate' ) ) {
 			) );
 		}
 
+		/**
+		 * get_target_locale gets the user locale to use as the target
+		 */
 		private static function get_target_locale() {
-			global $wp_local_package;
-			if ( isset( $wp_local_package ) )
-	      			$locale = $wp_local_package;
-			
 			//WP4.7 function to get current user locale
 			$locale = get_user_locale();
-			
+
 			/* fallback methods
 			if ( defined( 'WPLANG' ) )
 				$locale = WPLANG;
@@ -230,8 +258,9 @@ if ( ! class_exists( 'JM_Buddy_Translate' ) ) {
 					$locale = $db_locale;
 			}
 			*/
-			if ( empty( $locale ) )
+			if ( empty( $locale ) ){
 				$locale = 'en_US';      // just in case
+			}
 			return $locale;
 		}
 
