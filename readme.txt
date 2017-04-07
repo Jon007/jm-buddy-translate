@@ -134,14 +134,14 @@ Note that the production stage level can be incremented on occasion for simple t
 
 
 == Upgrade Notice ==
-= 1.0.3 = 
+= 1.0.4 = 
 (2017/04/08) Minor fixes:
 - updated Settings screen to use WP settings api
 - fixes for change to google results format
 - improved default message and readability styling
 - Languages: updated Spanish, Chinese, added French
 
-= 1.0.2 =
+= 1.0.2 = 
 (2017/04/06) Minor fixes:
 - Change to load sequence for admin views due to some "headers already sent" type issues.
 - removed https from google translate link to allow use in non-SSL site
