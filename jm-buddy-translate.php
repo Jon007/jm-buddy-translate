@@ -15,7 +15,7 @@
  * Contributors: jonathanmoorebcsorg
  * Requires At Least: 4.7
  * Tested Up To: 4.7.3
- * Stable Tag: 1.0.3
+ * Stable Tag: 1.0.5
  * Version Components: {major}.{minor}.{bugfix}-{stage}{level}
  *
  *	{major}		Major code changes / re-writes or significant feature changes.
