@@ -15,7 +15,7 @@
  * Contributors: jonathanmoorebcsorg
  * Requires At Least: 4.7
  * Tested Up To: 4.7.3
- * Stable Tag: 1.0.5
+ * Stable Tag: 1.0.6
  * Version Components: {major}.{minor}.{bugfix}-{stage}{level}
  *
  *	{major}		Major code changes / re-writes or significant feature changes.
@@ -56,7 +56,7 @@ if ( ! class_exists( 'JM_Buddy_Translate' ) ) {
 		 * enqueue scripts and hook buttons according to the options set
 		 */
 		public function __construct() {
-			
+
 			$options = btranslate_getOptions();
 
 			//optionally, implement different function on front and back end 
@@ -86,7 +86,7 @@ if ( ! class_exists( 'JM_Buddy_Translate' ) ) {
 				add_action( 'bp_activity_entry_meta', array( __CLASS__, 'add_activity_translate_button' ) );
 				add_action( 'bp_after_message_meta', array( __CLASS__, 'add_message_translate_button' ) );				
 			}
-			if ($options['bbpress_translate'] ){
+			if ( isset($options['bbpress_translate']) ) {
 				add_action( 'bbp_theme_before_reply_admin_links', array( __CLASS__, 'add_bbp_translate_button' ) );				
 			}
 			

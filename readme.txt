@@ -14,7 +14,7 @@ Tags: user, locale, language, translate, back-end, front-end, buddypress
 Contributors: jsmoriss
 Requires At Least: 4.7
 Tested Up To: 4.7.3
-Stable Tag: 1.0.5
+Stable Tag: 1.0.6
 
 Quick and easy translate your buddypress messages.
 
@@ -117,11 +117,23 @@ Version components: `{major}.{minor}.{bugfix}-{stage}{level}`
 Note that the production stage level can be incremented on occasion for simple text revisions and/or translation updates. See [PHP's version_compare()](http://php.net/manual/en/function.version-compare.php) documentation for additional information on "PHP-standardized" version numbering.
 
 = Changelog / Release Notes =
-**Version 1.0.1 (2017/04/05)**
-* *Bugfixes*
-	* removed JS parameter default values for Internet Explorer compatibility
+= 1.0.6 = 
+(2017/04/08) Minor fixes:
+- updated Settings screen to use WP settings api
+- fixes for change to google results format
+- improved default message and readability styling
+- Languages: updated Spanish, Chinese, added French
 
-**Version 1.0 (2017/04/05)**
+= 1.0.2 = 
+(2017/04/06) Minor fixes:
+- Change to load sequence for admin views due to some "headers already sent" type issues.
+- removed https from google translate link to allow use in non-SSL site
+
+= 1.0.1 =
+(2017/04/05) Patching for Internet Explorer compatibility.
+
+= 1.0 =
+(2017/04/04) Initial release.
 
 * *New Features*
 	* First version
@@ -134,7 +146,7 @@ Note that the production stage level can be incremented on occasion for simple t
 
 
 == Upgrade Notice ==
-= 1.0.5 = 
+= 1.0.6 = 
 (2017/04/08) Minor fixes:
 - updated Settings screen to use WP settings api
 - fixes for change to google results format
