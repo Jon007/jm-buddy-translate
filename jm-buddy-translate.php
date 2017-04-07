@@ -3,7 +3,6 @@
  * Plugin Name: JM Buddy Translate
  * Text Domain: jm-buddy-translate
  * Domain Path: /languages
- * Version: 1.0.1
  * Plugin URI: https://github.com/Jon007/jm-buddy-translate/
  * Assets URI: https://github.com/Jon007/jm-buddy-translate/assets/
  * Author: Jonathan Moore
@@ -13,9 +12,10 @@
  * Description: Adds a translate menu item in the WordPress admin back-end admin and front-end toolbar menus which translates selected text to current translate.
 * Tags: user, translate, language, translate, back-end, front-end, buddypress
  * Contributors: jonathanmoorebcsorg
+ * Version: 1.0.7
+ * Stable Tag: 1.0.7
  * Requires At Least: 4.7
  * Tested Up To: 4.7.3
- * Stable Tag: 1.0.6
  * Version Components: {major}.{minor}.{bugfix}-{stage}{level}
  *
  *	{major}		Major code changes / re-writes or significant feature changes.
