@@ -14,7 +14,7 @@ Tags: user, locale, language, translate, back-end, front-end, buddypress
 Contributors: jsmoriss
 Requires At Least: 4.7
 Tested Up To: 4.7.3
-Stable Tag: 1.0.3
+Stable Tag: 1.0.5
 
 Quick and easy translate your buddypress messages.
 
@@ -134,7 +134,7 @@ Note that the production stage level can be incremented on occasion for simple t
 
 
 == Upgrade Notice ==
-= 1.0.4 = 
+= 1.0.5 = 
 (2017/04/08) Minor fixes:
 - updated Settings screen to use WP settings api
 - fixes for change to google results format
