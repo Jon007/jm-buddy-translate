@@ -15,7 +15,7 @@
  * Contributors: jonathanmoorebcsorg
  * Requires At Least: 4.7
  * Tested Up To: 4.7.3
- * Stable Tag: 1.0.1
+ * Stable Tag: 1.0.3
  * Version Components: {major}.{minor}.{bugfix}-{stage}{level}
  *
  *	{major}		Major code changes / re-writes or significant feature changes.
@@ -42,7 +42,7 @@ if ( ! defined( 'ABSPATH' ) ){
 	die( 'Nothing to see here...' );
 }
 
-include_once( plugin_dir_path(__FILE__) . 'btranslate-settings.php' );
+include_once( plugin_dir_path(__FILE__) . 'jm-buddy-translate-settings.php' );
 
 if ( ! class_exists( 'JM_Buddy_Translate' ) ) {
 
@@ -57,7 +57,7 @@ if ( ! class_exists( 'JM_Buddy_Translate' ) ) {
 		 */
 		public function __construct() {
 			
-			$options = get_option('jm_buddy_translate_options');
+			$options = btranslate_getOptions();
 
 			//optionally, implement different function on front and back end 
 			//$is_admin = is_admin();
@@ -76,13 +76,13 @@ if ( ! class_exists( 'JM_Buddy_Translate' ) ) {
 			/**
 			 * add translate to menu bar if option set
 			 */
-			if ( $options['menubar_translate'] ){
+			if ( isset($options['menubar_translate']) ) {
 				add_action( 'wp_before_admin_bar_render', array( __CLASS__, 'add_translate_toolbar' ) );
 			}
 			/**
 			 * add translate buttons to buddypress if option set
 			 */
-			if ($options['buddypress_translate'] ){
+			if ( isset($options['buddypress_translate']) ) {
 				add_action( 'bp_activity_entry_meta', array( __CLASS__, 'add_activity_translate_button' ) );
 				add_action( 'bp_after_message_meta', array( __CLASS__, 'add_message_translate_button' ) );				
 			}

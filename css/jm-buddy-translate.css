@@ -19,7 +19,7 @@
 @keyframes spin { 100% { -webkit-transform: rotate(360deg); transform:rotate(360deg); } }
 
 #bTranslateContainer{
-	background-color: rgba(254,254,254,0.8);
+	background-color: rgba(254,254,254,0.9);
 	border:1px solid #dd3333;
 	display:block;
 	margin-top: 31px;
@@ -36,6 +36,9 @@
 #bTranslateResult{
 	padding-left:2em;
 	line-height: 1em;
+}
+#bTranslateContainer br{
+	line-height:1em;
 }
 #bTranslateContainer .ab-icon{
 	float:none;

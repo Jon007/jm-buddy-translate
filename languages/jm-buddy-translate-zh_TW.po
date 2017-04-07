@@ -2,47 +2,66 @@ msgid ""
 msgstr ""
 "Project-Id-Version: JSM's User Locale 1.2.1-1\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/jsm-user-locale\n"
-"POT-Creation-Date: 2017-04-04 14:12+0000\n"
+"POT-Creation-Date: 2017-04-07 15:39+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2017-04-04 14:18+0000\n"
+"PO-Revision-Date: 2017-04-07 15:42+0000\n"
 "Last-Translator: acefadm <acef@inkston.com>\n"
 "Language-Team: Chinese (Taiwan)\n"
 "Language: zh-TW\n"
 "Plural-Forms: nplurals=1; plural=0\n"
 "X-Generator: Loco - https://localise.biz/"
 
-#: jm-buddy-translate.php:89 jm-buddy-translate.php:95
-#: jm-buddy-translate.php:100
-msgid "Translate"
-msgstr "翻譯"
+#: jm-buddy-translate-settings.php:14
+msgid "Settings"
+msgstr "選項"
 
-#: jm-buddy-translate.php:136
-msgid "Google Translation"
-msgstr "谷歌翻譯"
+#: jm-buddy-translate-settings.php:34
+msgid "Translate Integration Options"
+msgstr "翻譯集成選項"
 
-#: jm-buddy-translate.php:138
-msgid "open in Google Translate"
-msgstr "在谷歌翻譯打開"
+#: jm-buddy-translate-settings.php:41
+msgid "Menu Bar"
+msgstr "工具欄"
 
-#: jm-buddy-translate.php:141
-msgid "close"
-msgstr "關閉"
+#: jm-buddy-translate-settings.php:46
+msgid "Integrate into the top menu bar."
+msgstr "集成到頂級工具欄中"
 
-#: jm-buddy-translate.php:168
+#: jm-buddy-translate-settings.php:51
+msgid "Buddy Press"
+msgstr ""
+
+#: jm-buddy-translate-settings.php:56
+msgid "Add Translate button to BuddyPress messages and activities."
+msgstr "添加翻譯按鈕到BuddyPress消息和活動。"
+
+#: jm-buddy-translate-settings.php:62
+msgid "bbPress"
+msgstr ""
+
+#: jm-buddy-translate-settings.php:67
+msgid "Add Translate button to bbPress Forum posts."
+msgstr "添加翻譯按鈕到bbPress論壇帖子。"
+
+#: jm-buddy-translate-settings.php:90
+msgid "Show translate button in the following places:"
+msgstr "在以下地方顯示翻譯按鈕："
+
+#: jm-buddy-translate-settings.php:114
+msgid "is a translation helper tool from"
+msgstr "是一個翻譯助手工具作者"
+
+#: jm-buddy-translate.php:194
 #, php-format
 msgid "%1$s requires %2$s version %3$s or higher and has been deactivated."
 msgstr ""
 
-#: jm-buddy-translate.php:170
+#: jm-buddy-translate.php:196
 #, php-format
 msgid "Please upgrade %1$s before trying to reactivate the %2$s plugin."
 msgstr ""
-
-#: jm-buddy-translate.php:183 jm-buddy-translate.php:192
-msgid "translate"
-msgstr "翻譯"
 
 #. Name of the plugin
 msgid "JM Buddy Translate"
@@ -55,7 +74,7 @@ msgid ""
 msgstr ""
 
 #. URI of the plugin
-msgid "https://github.com/Jon007jm-buddy-translate/"
+msgid "https://github.com/Jon007/jm-buddy-translate/"
 msgstr ""
 
 #. Author of the plugin
@@ -65,3 +84,24 @@ msgstr ""
 #. Author URI of the plugin
 msgid "https://jonmoblog.wordpress.com/"
 msgstr ""
+
+#: jm-buddy-translate.php:100 jm-buddy-translate.php:108
+#: jm-buddy-translate.php:115
+msgid "Translate"
+msgstr "翻譯"
+
+#: jm-buddy-translate.php:155
+msgid "Google Translation"
+msgstr "谷歌翻譯"
+
+#: jm-buddy-translate.php:157
+msgid "open in Google Translate"
+msgstr "在谷歌翻譯打開"
+
+#: jm-buddy-translate.php:160
+msgid "close"
+msgstr "關閉"
+
+#: jm-buddy-translate.php:213 jm-buddy-translate.php:222
+msgid "translate"
+msgstr "翻譯"

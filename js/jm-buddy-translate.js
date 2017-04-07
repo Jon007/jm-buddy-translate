@@ -41,7 +41,7 @@ function btTranslate(inputEl, parentEl, useSelection, sourceLang, targetLang){
 	if ('object'===typeof(sourceText)){
 		sourceText=sourceText.toString();
 	}
-	if (!(sourceText)){sourceText='please select some text before translating';}
+	if (!(sourceText)){sourceText='Please select some text and press translate again: the results will appear here.';}
 	return btGoogleGet(parentEl, sourceText, sourceLang, targetLang);
 }
 
@@ -196,31 +196,40 @@ function btGetSelected(el, w, d, cstack){
 */
 function btExtractText( str ){
 	var ret = "";
-	if ( /"/.test( str ) ){
-		//global search for all quoted strings
-		matchResult = str.match( /"(.*?)"/g );
-
-		//remove the last matches which are language codes...
-		if (matchResult.length<3) {
-			ret += matchResult[0]; 
-		} else {
-			for (i = 0; i < matchResult.length-3; i=i+2) { 
-				//depending on usage a different treatment might be wanted for line breaks
-				//ret += matchResult[i].toString().replace(/\\n/g, "<br/>");
-				//remove starting/trailing quotes on the match and concatenate
-				sResult = matchResult[i].replace (/(^")|("$)/g, '').trim();
-				if ( (sResult==='\n') || (sResult==='\r') ){
-					//ignore extra breaks - spotted in Internet Explorer results
-				}else{
-					ret += sResult;
-				}
-			}
+	var skip=2;
+	//if passed an array, use it
+	if (jQuery.isArray(str)){
+		matchResult=str;
+		skip=1;
+	}
+	else{
+		//any other object, convert to string and attempt to find results
+		if ('string'!==typeof(str)){
+			str=str.toString();
 		}
-	} else {  //text has no quoted strings
-		if ('object'===typeof(t)){
-			t=t.toString();
-		}else{
-			ret = str;
+		if ( /"/.test( str ) ){
+			//global search for all quoted strings
+			matchResult = str.match( /"(.*?)"/g );
+		} else {  //text has no quoted strings, try comma separation
+			matchResult = str.split(",");
+			skip=5;
+		}
+	}
+	//remove the last matches which are language codes...
+	if (matchResult.length<3) {
+		ret += matchResult[0]; 
+	} else {
+		for (i = 0; i < matchResult.length-3; i=i+skip) { 
+			//depending on usage a different treatment might be wanted for line breaks
+			//ret += matchResult[i].toString().replace(/\\n/g, "<br/>");
+			//remove starting/trailing quotes on the match and concatenate
+			sResult = matchResult[i].replace (/(^")|("$)/g, '').trim();
+			//sResult = matchResult[i];
+			if ( (sResult==='\n') || (sResult==='\r') ){
+				//ignore extra breaks - spotted in Internet Explorer results
+			}else{
+				ret += sResult+'<br />';
+			}
 		}
 	}
 	return ret;
@@ -237,7 +246,7 @@ function btExtractText( str ){
 function btGoogleGet(parentEl, q, sourceLang, targetLang) {
 		//rewrite to remove parameter default values for Internet Explorer compatiblity
 		if (!parentEl){parentEl=jQuery("#wpadminbar");}
-		if (!q){q='please select text to translate';}
+		if (!q){q='Please select some text and press translate again: the results will appear here.';}
 		if (!sourceLang){sourceLang='auto';}
 		if (!targetLang){targetLang=document.documentElement.lang;}
 
@@ -260,8 +269,31 @@ function btGoogleGet(parentEl, q, sourceLang, targetLang) {
 		.done(function (data, textStatus, jqXHR) {
 				// Process data, as received in data parameter
 				//actually if we get here the result may be valid JSON, so could be parsed as such
-				//but this has not happened...
-				translateResult=btExtractText(data);
+				//but when originally written the Google result was never JSON valid...
+				translateResult='';
+				if (jQuery.isArray(data)){
+					data=data[0];
+				}
+				if (jQuery.isArray(data)){
+					for (i = 0; i < data.length; i=i+1) { 
+						//depending on usage a different treatment might be wanted for line breaks
+						//ret += matchResult[i].toString().replace(/\\n/g, "<br/>");
+						//remove starting/trailing quotes on the match and concatenate
+						sResult = data[i];
+						if (jQuery.isArray(sResult)){sResult=sResult[0];}
+						sResult.replace (/(^")|("$)/g, '').trim();
+						//sResult = matchResult[i];
+						if ( (sResult==='\n') || (sResult==='\r') ){
+							//ignore extra breaks - spotted in Internet Explorer results
+						}else{
+							translateResult += sResult+'<br />';
+						}
+					}
+				} else{
+					translateResult=btExtractText(data);
+				}
+
+			
 				var element = jQuery('#bTranslateResult');
 				element.text(translateResult);
 				element.html(element.text().replace(/\\n\\n/g,'<br />').replace(/\\n/g,'<br />'));
@@ -280,6 +312,7 @@ function btGoogleGet(parentEl, q, sourceLang, targetLang) {
 		.fail(function (jqXHR, textStatus, errorThrown) {
 				// Request failed. may need to Show error message to user. 
 				// errorThrown has error message, or "timeout" in case of timeout.
+				debugger
 				var translateResult='';
 				switch (textStatus){
 					case "parsererror": break;  //expected JSON error, ignore
