@@ -127,10 +127,10 @@ function jmbt_options_page(  ) {
 <h2>Menu Bar usage</h2>
 <p>Illustration shows sample usage along with recommended tool jsm-user-locale which provides current user a quick way to choose preferred language.</p>
 <p>When you click the translate button, the currently text is sent to Google translate for translation to current user language.</p>
-<img height="153px" width="500px" style="align:center" src="<?php echo(plugin_dir_url(__FILE__))?>assets/screenshot-1.png"/>
+<img height="153px" width="500px" style="align:center" src="https://raw.githubusercontent.com/Jon007/jm-buddy-translate/master/assets/screenshot-1.png"/>
 <h2>BuddyPress and bbPress usage</h2>
 <p>The tool includes hooks to insert translate buttons along in the standard button areas for bbPress and BuddyPress messages and activities.</p>
-<img style="align:center" height="265px" width="626px" src="<?php echo(plugin_dir_url(__FILE__))?>assets/screenshot-2.png"/>
+<img style="align:center" height="265px" width="626px" src="https://raw.githubusercontent.com/Jon007/jm-buddy-translate/master/assets/screenshot-2.png"/>
 <h2>Notes</h2>
 <p>The tool is designed to work for logged-on users and will attempt to translate into the user's preferred language. To change target language the user can change their preferred Wordpress language or use a switching tool such as jsm-user-locale to do the same thing.</p>
 <p>The order of preference for detecting text to translate is:
