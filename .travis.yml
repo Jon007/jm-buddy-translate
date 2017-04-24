@@ -22,4 +22,4 @@ install:
   - travis_retry composer install
 
 script:
-  - find src \( -name '*.php' \) -exec php -l {} \;
+  - find \( -name '*.php' \) -exec php -l {} \;
