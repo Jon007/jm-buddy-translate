@@ -2,8 +2,8 @@
 
 [![Build Status](https://travis-ci.org/Jon007/jm-buddy-translate.svg?branch=master)](https://travis-ci.org/Jon007/jm-buddy-translate)
 [![project status](http://www.repostatus.org/badges/latest/active.svg)](https://github.com/Jon007/jm-buddy-translate)
-[![GitHub release](https://img.shields.io/github/release/Jon007/jm-buddy-translate.svg)](https://github.com/Jon007/jm-buddy-translate/)
-[![Wordpress  release](http://img.shields.io/wordpress/plugin/v/jm-buddy-translate.svg)](https://wordpress.org/plugins/jm-buddy-translate/releases)
+[![GitHub GitHub latest](https://img.shields.io/github/release/Jon007/jm-buddy-translate.svg)](https://github.com/Jon007/jm-buddy-translate/releases)
+[![Wordpress  Wordpress latest](http://img.shields.io/wordpress/plugin/v/jm-buddy-translate.svg)](https://wordpress.org/plugins/jm-buddy-translate)
 [![Wordpress downloads](http://img.shields.io/wordpress/plugin/dt/jm-buddy-translate.svg)](https://wordpress.org/plugins/jm-buddy-translate/)
 [![Wordpress rating](http://img.shields.io/wordpress/plugin/r/jm-buddy-translate.svg)](https://wordpress.org/plugins/jm-buddy-translate/)
 [![license](https://img.shields.io/github/license/Jon007/jm-buddy-translate.svg)](https://github.com/Jon007/jm-buddy-translate/blob/master/LICENSE)
