@@ -1,41 +1,31 @@
 {
-  "name": "Jon007/jm-buddy-translate",
-  "version": "1.0.0",
-  "description": "This plugin adds a menu bar button to Translate any selected text, and a Translate button to BuddyPress and bbPress messages",
-  "type": "wordpress-plugin",
+  "name": "jm-buddy-translate",
+  "version": "1.0.8",
+  "description": "Adds a Translate button to the WordPress admin bar to translate any selected text. Adds Translate buttons to BuddyPress and bbPress messages.",
+  "main": "jm-buddy-translate.php",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Jon007/jm-buddy-translate.git"
+  },
   "keywords": [
     "locale",
     "language",
     "translate",
-    "bbpress",
-    "buddypress"
+    "back-end",
+    "front-end",
+    "buddypress",
+    "bbpress"
   ],
-  "homepage": "https://github.com/Jon007/jm-buddy-translate",
-  "license": "GPLv3",
-  "bugs": "https://github.com/Jon007/jm-buddy-translate/issues",
-  "author": [
-    {
-      "name": "Jonathan Moore",
-      "email": "jonathan.moore@bcs.org",
-      "url": "https://jonmoblog.wordpress.com/",
-    }
-  ],
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/Jon007/jm-buddy-translate"
+  "author": "Jonathan Moore",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/Jon007/jm-buddy-translate/issues"
   },
+  "homepage": "https://github.com/Jon007/jm-buddy-translate#readme",
   "devDependencies": {
-    "eslint": "^3.12.2",
-    "eslint-config-inpsyde": "^1.5.0",
-    "grunt": ">=0.4.5",
-    "grunt-contrib-imagemin": "^1.0.0",
-    "grunt-eslint": "^19.0.0",
-    "grunt-jsonlint": "^1.1.0",
-    "grunt-lineending": "^1.0.0",
-    "grunt-newer": "^1.2.0",
-    "grunt-phplint": "~0.0.5",
-    "grunt-shell": "^2.1.0",
-    "grunt-zip": "^0.17.1",
-    "load-grunt-tasks": "^3.5.0"
+    "eslint": "^3.19.0"
   }
 }

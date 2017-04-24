@@ -1,25 +1,38 @@
-language: php
+sudo: false
+
+notifications:
+  email:
+    on_success: never
+    on_failure: jonathan.moore@bcs.org
+
+cache:
+  directories:
+    - node_modules
+    - vendor
+    - $HOME/phpunit-bin
+
+language:
+  - php
+  - node_js
 
 php:
   - 5.6
-  - 7.0
   - 7.1
-  - hhvm
-  - nightly
 
-sudo: false
-
-matrix:
-  fast_finish: true
-  allow_failures:
-    - php: hhvm
-    - php: nightly
-
-before_install:
-  - composer self-update
+env:
+  - WP_VERSION=latest WP_MULTISITE=0
+  - WP_VERSION=trunk WP_MULTISITE=0
+  - WP_VERSION=trunk WP_MULTISITE=1
 
 install:
-  - travis_retry composer install
+  - nvm install 6 && nvm use 6
+  - export DEV_LIB_PATH=dev-lib
+  - if [ ! -e "$DEV_LIB_PATH" ] && [ -L .travis.yml ]; then export DEV_LIB_PATH=$( dirname $( readlink .travis.yml ) ); fi
+  - if [ ! -e "$DEV_LIB_PATH" ]; then git clone https://github.com/xwp/wp-dev-lib.git $DEV_LIB_PATH; fi
+  - source $DEV_LIB_PATH/travis.install.sh
 
 script:
-  - find \( -name '*.php' \) -exec php -l {} \;
+  - source $DEV_LIB_PATH/travis.script.sh
+
+after_script:
+  - source $DEV_LIB_PATH/travis.after_script.sh
