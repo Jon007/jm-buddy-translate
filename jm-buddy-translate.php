@@ -12,10 +12,10 @@
  * Description: Adds a translate menu item in the WordPress admin back-end admin and front-end toolbar menus which translates selected text to current translate.
 * Tags: user, translate, language, translate, back-end, front-end, buddypress
  * Contributors: jonathanmoorebcsorg
- * Version: 1.0.7
- * Stable Tag: 1.0.7
+ * Version: 1.0.8
+ * Stable Tag: 1.0.8
  * Requires At Least: 4.7
- * Tested Up To: 4.7.3
+ * Tested Up To: 4.7.4
  * Version Components: {major}.{minor}.{bugfix}-{stage}{level}
  *
  *	{major}		Major code changes / re-writes or significant feature changes.
@@ -24,21 +24,21 @@
  *	{stage}{level}	dev < a (alpha) < b (beta) < rc (release candidate) < # (production).
  *
  * See PHP's version_compare() documentation at http://php.net/manual/en/function.version-compare.php.
- * 
+ *
  * This script is free software; you can redistribute it and/or modify it under
  * the terms of the GNU General Public License as published by the Free Software
  * Foundation; either version 3 of the License, or (at your option) any later
  * version.
- * 
+ *
  * This script is distributed in the hope that it will be useful, but WITHOUT ANY
  * WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A
  * PARTICULAR PURPOSE. See the GNU General Public License for more details at
  * http://www.gnu.org/licenses/.
- * 
+ *
  * Copyright 2017 Jonathan Moore (https://jonmoblog.wordpress.com/)
  */
 
-if ( ! defined( 'ABSPATH' ) ){ 
+if ( ! defined( 'ABSPATH' ) ){
 	die( 'Nothing to see here...' );
 }
 
@@ -59,7 +59,7 @@ if ( ! class_exists( 'JM_Buddy_Translate' ) ) {
 
 			$options = btranslate_getOptions();
 
-			//optionally, implement different function on front and back end 
+			//optionally, implement different function on front and back end
 			//$is_admin = is_admin();
 			//$on_front = apply_filters( 'jm_buddy_translate_front_end', true );
 
@@ -84,12 +84,12 @@ if ( ! class_exists( 'JM_Buddy_Translate' ) ) {
 			 */
 			if ( isset($options['buddypress_translate']) ) {
 				add_action( 'bp_activity_entry_meta', array( __CLASS__, 'add_activity_translate_button' ) );
-				add_action( 'bp_after_message_meta', array( __CLASS__, 'add_message_translate_button' ) );				
+				add_action( 'bp_after_message_meta', array( __CLASS__, 'add_message_translate_button' ) );
 			}
 			if ( isset($options['bbpress_translate']) ) {
-				add_action( 'bbp_theme_before_reply_admin_links', array( __CLASS__, 'add_bbp_translate_button' ) );				
+				add_action( 'bbp_theme_before_reply_admin_links', array( __CLASS__, 'add_bbp_translate_button' ) );
 			}
-			
+
 	}
 
 		/**
@@ -98,8 +98,8 @@ if ( ! class_exists( 'JM_Buddy_Translate' ) ) {
 		public static function add_bbp_translate_button(){
 			?><a href="#" class="button acomment-translate" onmousedown="javascript:btnTranslatebbp(jQuery(this));return false;" onclick="javascript:return false;"><?php printf( __( 'Translate', 'jm-buddy-translate' ) ); ?></a><?php
 		}
-		
-		
+
+
 		/**
 		 * hooked: bp_after_message_meta - called from eg buddypress/activity/entry.php
 		 */
@@ -121,44 +121,44 @@ if ( ! class_exists( 'JM_Buddy_Translate' ) ) {
 		}
 
 		/**
-		 * adds .min versions of scripts unless SCRIPT_DEBUG defined 
+		 * adds .min versions of scripts unless SCRIPT_DEBUG defined
 		 * also uses file timestamp as version to force update when changed
 		 */
 		public static function jm_buddy_translate_scripts_method() {
-	
+
 			$suffix = defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ? '' : '.min';
 
 			$csfile='css/jm-buddy-translate' . $suffix . '.css' ;
-			wp_register_style('jm_buddy_translate-css',	plugin_dir_url(__FILE__) . $csfile , false, 
+			wp_register_style('jm_buddy_translate-css',	plugin_dir_url(__FILE__) . $csfile , false,
 					filemtime( plugin_dir_path(__FILE__) . $csfile), 'all' );
 			wp_enqueue_style( 'jm_buddy_translate-css');
 					//,	plugin_dir_url(__FILE__) . $csfile , array( 'jquery3' ), 					filemtime( plugin_dir_path(__FILE__) . $csfile), 'all' );
-			
+
 			//Core JS file - now using WP standard JQuery
 			//$jsfile='js/jm-buddy-translate' . $suffix . '.js' ;
 			//wp_register_script( 'jquery3', plugin_dir_url(__FILE__) . 'js/jquery.min.js', array(), '3.2.0', true );
-			
+
 			$jsfile='js/jm-buddy-translate' . $suffix . '.js' ;
-			wp_enqueue_script( 'jm_buddy_translate', plugin_dir_url(__FILE__) . $jsfile , array( 'jquery' ), 
+			wp_enqueue_script( 'jm_buddy_translate', plugin_dir_url(__FILE__) . $jsfile , array( 'jquery' ),
 					filemtime( plugin_dir_path(__FILE__) . $jsfile ), true);
 
 		}
 
 
 		/**
-		 * adds placeholder divs for translation result layout 
+		 * adds placeholder divs for translation result layout
 		 */
 		public static function jm_buddy_translate_footer() {
-				echo('<div id="bTranslateContainer">' . 
-								'<div id="bTranslateHeader"><span id="bTranslateTitle">' .  
+				echo('<div id="bTranslateContainer">' .
+								'<div id="bTranslateHeader"><span id="bTranslateTitle">' .
 									__('Google Translation', 'jm-buddy-translate' ) .
-									' </span> - <a id="bTranslateLink" target="googletranslate" href="">' . 
+									' </span> - <a id="bTranslateLink" target="googletranslate" href="">' .
 									'<span class="bigscreen-caption">' . __( 'open in Google Translate', 'jm-buddy-translate' ) . '</span>' .
 										' <span id="google-link-icon" class="ab-icon dashicons-'.self::$dashicons[326].'"></span>' .
 										' </a> &nbsp; &nbsp; &nbsp; <a id="bTranslateClose" href="#" onclick="javascript:btMinimize();return false;" >' .
 									'<span class="bigscreen-caption">' . __('close', 'jm-buddy-translate' ) . '</span>' .
 										' <span id="close-link-icon" class="ab-icon dashicons-'.self::$dashicons[153].'"></span>' .
-										' </a> </div>' . 
+										' </a> </div>' .
 						    '<div id="bTranslateResult"></div></div>');
 		}
 		public static function &get_instance() {
@@ -189,7 +189,7 @@ if ( ! class_exists( 'JM_Buddy_Translate' ) ) {
 					}
 					$plugin_data = get_plugin_data( __FILE__, false );	// $markup = false
 					deactivate_plugins( $plugin, true );	// $silent = true
-					wp_die( 
+					wp_die(
 						'<p>'.sprintf( __( '%1$s requires %2$s version %3$s or higher and has been deactivated.',
 							'jm-buddy-translate' ), $plugin_data['Name'], 'WordPress', self::$wp_min_version ).'</p>'.
 						'<p>'.sprintf( __( 'Please upgrade %1$s before trying to reactivate the %2$s plugin.',
@@ -205,12 +205,12 @@ if ( ! class_exists( 'JM_Buddy_Translate' ) ) {
 		public static function add_translate_toolbar() {
 			//exit if not logged in
 			if ( ! $user_id = get_current_user_id() ){
-				return;			
+				return;
 			}
-			
+
 			global $wp_admin_bar;
 			$menu_translate = '<span class="bigscreen-caption">' . __( 'translate', 'jm-buddy-translate' ) . '</span>';
-			
+
 			/*
 			 * Menu Icon and Title
 			 */
@@ -264,7 +264,7 @@ if ( ! class_exists( 'JM_Buddy_Translate' ) ) {
 			return $locale;
 		}
 
-		
+
 		private static $dashicons = array(
 			100 => 'admin-appearance',
 			101 => 'admin-comments',
@@ -433,7 +433,7 @@ if ( ! class_exists( 'JM_Buddy_Translate' ) ) {
 			471 => 'tablet',
 			472 => 'desktop',
 			473 => 'testimonial',
-		);		
+		);
 	}//class
 }//if class exists
 

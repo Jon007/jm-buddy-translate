@@ -1,0 +1,29 @@
+{
+  "name": "Jon007/jm-buddy-translate",
+  "description": "This plugin adds a menu bar button to Translate any selected text, and a Translate button to BuddyPress and bbPress messages",
+  "type": "wordpress-plugin",
+  "keywords": [
+    "locale",
+    "language",
+    "translate",
+    "bbpress",
+    "buddypress"
+  ],
+  "homepage": "https://github.com/Jon007/jm-buddy-translate",
+  "license": "GPLv3",
+  "authors": [
+    {
+      "name": "Jonathan Moore",
+      "email": "jonathan.moore@bcs.org",
+      "homepage": "https://jonmoblog.wordpress.com/",
+      "role": "Developer"
+    }
+  ],
+  "support": {
+    "issues": "https://github.com/Jon007/jm-buddy-translate/issues",
+    "source": "https://github.com/Jon007/jm-buddy-translate"
+  },
+  "require": {
+    "php": ">=5.6.0"
+  }
+}

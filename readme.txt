@@ -1,9 +1,9 @@
 === JM Buddy Translate  ===
 Contributors: jonathanmoorebcsorg
 Donate link: http://paypal.me/jonathanmoorebcsorg
-Tags: locale, language, translate, back-end, front-end, buddypress
+Tags: locale, language, translate, back-end, front-end, buddypress, bbpress
 Requires at least: 4.7
-Tested up to: 4.7.3
+Tested up to: 4.7.4
 Stable tag: trunk
 License: GPLv3
 License URI: https://www.gnu.org/licenses/gpl.txt
@@ -12,8 +12,8 @@ Quick and easy translate BuddyPress and bbPress messages or any selected text.
 
 == Description ==
 
-Adds a translate menu item in the WordPress admin back-end admin and front-end toolbar menus.
-Adds translate buttons to BuddyPress and bbPress messages.
+Adds a Translate button to the WordPress admin bar to translate any selected text.
+Adds Translate buttons to BuddyPress and bbPress messages.
 
 Translate translates selected text to current locale: where user is logged in, this is the user's preferred language.
 
@@ -70,6 +70,9 @@ Note that whatever the problem, the translation result panel link to Google Tran
 
 == Changelog ==
 
+= 1.0.8 = 
+* updates to documentation and packaging
+
 = 1.0.7 = 
 (2017/04/08) Minor fixes:
 * updated Settings screen to use WP settings api
@@ -108,5 +111,5 @@ This tool does not require any other plugins, however is tested with and recomme
 The tool is intended to add translate links for messages and docs with these tools.
 For other inputs, the Admin Bar translate button still allows translation of selected text.
 The following tool is also very useful for quickly changing current user language:
-[JSM's User Locale](https://wordpress.org/plugins/jsm-user-locale/) 1.2.1-1
+[JSM's User Locale](https://wordpress.org/plugins/jsm-user-locale/) 1.2.2
 The translation tool uses User Locale as the target language: if you enable JSM’s User Locale, you can quickly change the front-end language, which also becomes the target language for translations.
