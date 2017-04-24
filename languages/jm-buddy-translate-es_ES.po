@@ -2,16 +2,27 @@ msgid ""
 msgstr ""
 "Project-Id-Version: JSM's User Locale 1.2.1-1\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/jsm-user-locale\n"
-"POT-Creation-Date: 2017-04-07 15:22+0000\n"
+"POT-Creation-Date: 2017-04-24 09:53+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2017-04-07 15:27+0000\n"
+"PO-Revision-Date: 2017-04-24 09:54+0000\n"
 "Last-Translator: acefadm <acef@inkston.com>\n"
 "Language-Team: Spanish (Spain)\n"
 "Language: es-ES\n"
 "Plural-Forms: nplurals=2; plural=n != 1\n"
 "X-Generator: Loco - https://localise.biz/"
+
+#. Description of the plugin
+msgid ""
+"Adds Translate button to the WordPress admin bar to translate any selected "
+"text. Adds Translate buttons to BuddyPress and bbPress messages.  Text is "
+"translated to current user locale set in user profile Language."
+msgstr ""
+"Agrega el botón Traducir a la barra de administración de WordPress para "
+"traducir cualquier texto seleccionado. Agrega los botones Traducir a los "
+"mensajes BuddyPress y bbPress. El texto se traduce a la configuración actual "
+"del usuario establecido en el perfil de usuario campo Idioma."
 
 #: jm-buddy-translate-settings.php:14
 msgid "Settings"
@@ -31,7 +42,7 @@ msgstr "Integrar a la barra de menú superior"
 
 #: jm-buddy-translate-settings.php:51
 msgid "Buddy Press"
-msgstr ""
+msgstr "Buddy Press"
 
 #: jm-buddy-translate-settings.php:56
 msgid "Add Translate button to BuddyPress messages and activities."
@@ -39,7 +50,7 @@ msgstr "Añadir botón Traducir a los mensajes y las actividades de BuddyPress"
 
 #: jm-buddy-translate-settings.php:62
 msgid "bbPress"
-msgstr ""
+msgstr "bbPress"
 
 #: jm-buddy-translate-settings.php:67
 msgid "Add Translate button to bbPress Forum posts."
@@ -49,63 +60,54 @@ msgstr "Añadir botón Traducir a los mensajes de bbPress"
 msgid "Show translate button in the following places:"
 msgstr "Mostrar botón Traducir en los siguientes sitios"
 
-#: jm-buddy-translate-settings.php:114
+#: jm-buddy-translate-settings.php:118
 msgid "is a translation helper tool from"
 msgstr "es un asistente de traducción de"
 
-#. Name of the plugin
-msgid "JM Buddy Translate"
-msgstr ""
-
-#. URI of the plugin
-msgid "https://github.com/Jon007/jm-buddy-translate/"
-msgstr ""
-
-#. Author of the plugin
-msgid "Jonathan Moore"
-msgstr ""
-
-#. Author URI of the plugin
-msgid "https://jonmoblog.wordpress.com/"
-msgstr ""
-
-#: jm-buddy-translate.php:100 jm-buddy-translate.php:108
-#: jm-buddy-translate.php:115
+#: jm-buddy-translate.php:99 jm-buddy-translate.php:107
+#: jm-buddy-translate.php:114
 msgid "Translate"
 msgstr "Traducir"
 
-#: jm-buddy-translate.php:155
+#: jm-buddy-translate.php:154
 msgid "Google Translation"
 msgstr "Traducción de Google"
 
-#: jm-buddy-translate.php:157
+#: jm-buddy-translate.php:156
 msgid "open in Google Translate"
 msgstr "abrir en Google Translate"
 
-#: jm-buddy-translate.php:160
+#: jm-buddy-translate.php:159
 msgid "close"
 msgstr "cerrar"
 
-#: jm-buddy-translate.php:194
+#: jm-buddy-translate.php:193
 #, php-format
 msgid "%1$s requires %2$s version %3$s or higher and has been deactivated."
 msgstr "%1$s requiere %2$s versión %3$s o mas y entonces se ha desactivado."
 
-#: jm-buddy-translate.php:196
+#: jm-buddy-translate.php:195
 #, php-format
 msgid "Please upgrade %1$s before trying to reactivate the %2$s plugin."
 msgstr ""
 "Por favor actualizar %1$s antes de intentar reactivar el complemento %2$s."
 
-#: jm-buddy-translate.php:213 jm-buddy-translate.php:222
+#: jm-buddy-translate.php:212 jm-buddy-translate.php:221
 msgid "translate"
 msgstr "traducir"
 
-#. Description of the plugin
-msgid ""
-"Adds a translate menu item in the WordPress admin back-end admin and front-"
-"end toolbar menus which translates selected text to current translate."
-msgstr ""
-"Agrega un elemento de menú de traducción en los menús de administración de "
-"WordPress y los menús de la barra de herramientas front-end que convierte el "
-"texto seleccionado a la idioma actual."
+#. Name of the plugin
+msgid "JM Buddy Translate"
+msgstr "JM Buddy Translate"
+
+#. URI of the plugin
+msgid "https://github.com/Jon007/jm-buddy-translate/"
+msgstr "https://github.com/Jon007/jm-buddy-translate/"
+
+#. Author of the plugin
+msgid "Jonathan Moore"
+msgstr "Jon Moore"
+
+#. Author URI of the plugin
+msgid "https://jonmoblog.wordpress.com/"
+msgstr "https://jonmoblog.wordpress.com/"

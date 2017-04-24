@@ -9,7 +9,7 @@
  * Author URI: https://jonmoblog.wordpress.com/
  * License: GPLv3
  * License URI: https://www.gnu.org/licenses/gpl.txt
- * Description: Adds a translate menu item in the WordPress admin back-end admin and front-end toolbar menus which translates selected text to current translate.
+ * Description: Adds Translate button to the WordPress admin bar to translate any selected text. Adds Translate buttons to BuddyPress and bbPress messages.  Text is translated to current user locale set in user profile Language.
 * Tags: user, translate, language, translate, back-end, front-end, buddypress
  * Contributors: jonathanmoorebcsorg
  * Version: 1.0.8

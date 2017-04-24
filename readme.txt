@@ -1,7 +1,7 @@
 === JM Buddy Translate  ===
 Contributors: jonathanmoorebcsorg
 Donate link: http://paypal.me/jonathanmoorebcsorg
-Tags: locale, language, translate, back-end, front-end, buddypress, bbpress
+Tags: locale, language, translate, back-end, front-end, buddypress, bbPress
 Requires at least: 4.7
 Tested up to: 4.7.4
 Stable tag: trunk
@@ -51,7 +51,7 @@ It’s preferable to use Chrome, Firefox, Safari, Opera etc to avoid problems wi
 When the translation tool requests data from Google Translate, Internet Explorer may do an extra check to confirm that the certificate for googleapis.com has not been revoked.
 In certain circumstances (for example if the user is located in China and does not have VPN enabled), Internet Explorer may unable to complete this check so will give the warning.
 It is possible to accept and continue or to turn off certificate revocation check.
-Once accepted the tool 
+Once accepted the tool
 
 = Why can't I translate with Microsoft Edge? =
 
@@ -70,17 +70,17 @@ Note that whatever the problem, the translation result panel link to Google Tran
 
 == Changelog ==
 
-= 1.0.8 = 
+= 1.0.8 =
 * updates to documentation and packaging
 
-= 1.0.7 = 
+= 1.0.7 =
 (2017/04/08) Minor fixes:
 * updated Settings screen to use WP settings api
 * fixes for change to google results format
 * improved default message and readability styling
 * Languages: updated Spanish, Chinese, added French
 
-= 1.0.2 = 
+= 1.0.2 =
 (2017/04/06) Minor fixes:
 * Change to load sequence for admin views due to some "headers already sent" type issues.
 * removed https from google translate link to allow use in non-SSL site
