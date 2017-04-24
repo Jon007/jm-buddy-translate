@@ -32,7 +32,7 @@ Adds Translate buttons to BuddyPress and bbPress messages.
 
 If you have a feature request, or if you have developed the feature already, please feel free to use the Issues and/or Pull Requests section.
 
-Of course, you can also provide me with [translations](https://translate.wordpress.org/projects/wp-plugins/cat-generator-avatars) if you would like to use the plugin in another not yet included language.
+Of course, you can also provide me with [translations](https://translate.wordpress.org/projects/wp-plugins/jm-buddy-translate) if you would like to use the plugin in another not yet included language.
 
 ## License
 
