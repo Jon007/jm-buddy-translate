@@ -9,10 +9,17 @@ License: GPLv3
 License URI: https://www.gnu.org/licenses/gpl.txt
 
 Quick and easy translate BuddyPress and bbPress messages or any selected text.
+[![Build Status](https://travis-ci.org/Jon007/jm-buddy-translate.svg?branch=master)](https://travis-ci.org/Jon007/jm-buddy-translate)
+[![project status](http://www.repostatus.org/badges/latest/active.svg)](https://github.com/Jon007/jm-buddy-translate)
+[![GitHub GitHub latest](https://img.shields.io/github/release/Jon007/jm-buddy-translate.svg)](https://github.com/Jon007/jm-buddy-translate/releases)
+[![Wordpress  Wordpress latest](http://img.shields.io/wordpress/plugin/v/jm-buddy-translate.svg)](https://wordpress.org/plugins/jm-buddy-translate)
+[![Wordpress downloads](http://img.shields.io/wordpress/plugin/dt/jm-buddy-translate.svg)](https://wordpress.org/plugins/jm-buddy-translate/)
+[![Wordpress rating](http://img.shields.io/wordpress/plugin/r/jm-buddy-translate.svg)](https://wordpress.org/plugins/jm-buddy-translate/)
+[![license](https://img.shields.io/github/license/Jon007/jm-buddy-translate.svg)](https://github.com/Jon007/jm-buddy-translate/blob/master/LICENSE)
 
 == Description ==
 
-Adds a Translate button to the WordPress admin bar to translate any selected text.
+Adds Translate button to the WordPress admin bar to translate any selected text.
 Adds Translate buttons to BuddyPress and bbPress messages.
 
 Translate translates selected text to current locale: where user is logged in, this is the user's preferred language.
@@ -106,10 +113,18 @@ First version published on wordpress.org repository, readme etc updated to compl
 = Recommended Plugins: =
 
 This tool does not require any other plugins, however is tested with and recommended for use with:
-[BuddyPress](https://wordpress.org/plugins/buddypress/) Version 2.8.2
-[bbPress](https://wordpress.org/plugins/bbpress/) Version 2.5.12
+* [BuddyPress](https://wordpress.org/plugins/buddypress/) Version 2.8.2
+* [bbPress](https://wordpress.org/plugins/bbpress/) Version 2.5.12
 The tool is intended to add translate links for messages and docs with these tools.
 For other inputs, the Admin Bar translate button still allows translation of selected text.
+
 The following tool is also very useful for quickly changing current user language:
-[JSM's User Locale](https://wordpress.org/plugins/jsm-user-locale/) 1.2.2
+* [JSM's User Locale](https://wordpress.org/plugins/jsm-user-locale/) 1.2.2
 The translation tool uses User Locale as the target language: if you enable JSM’s User Locale, you can quickly change the front-end language, which also becomes the target language for translations.
+
+
+== Contribution ==
+
+If you have a feature request, or if you have developed the feature already, please feel free to use the [Issues](https://github.com/Jon007/jm-buddy-translate/issues) and/or (Pull Requests)[https://github.com/Jon007/jm-buddy-translate/pulls] section.
+
+Plugin translations are provided for English, French, Spanish, Chinese, please feel to contribute more [translations](https://translate.wordpress.org/projects/wp-plugins/jm-buddy-translate).

@@ -1,4 +1,13 @@
 <?php
+/**
+ * Cleanup on uninstall
+ *
+ * @link URL
+ *
+ * @package jm-buddy-translate
+ * @subpackage uninstall
+ * @since 1.0.7
+ */
 
 if (
 	!defined( 'WP_UNINSTALL_PLUGIN' )
