@@ -25,13 +25,20 @@ function btMinimize(){
  * @param {string} targetLang - source language, defaults to document language
  * @return {bool} - success (does not return translation result, only launches async call)
  */
-function btTranslate(inputEl, parentEl, useSelection, sourceLang, targetLang){
+function btTranslate(inputEl, parentEl, useSelection, sourceLang, targetLang, replaceTarget){
+
 	//rewrite to remove parameter default values for Internet Explorer compatiblity
 	if (!inputEl){inputEl=document.activeElement;}
 	if (!parentEl){parentEl=jQuery("#wpadminbar");}
 	if (!useSelection){useSelection=true;}
 	if (!sourceLang){sourceLang='auto';}
-	if (!targetLang){targetLang=document.documentElement.lang;}
+	if (!targetLang){
+		targetLang=document.documentElement.lang;
+		var urlParams = new URLSearchParams(window.location.search);
+		if (urlParams.has('new_lang')){
+			targetLang=urlParams.get('new_lang');
+		}
+	}
 
 	if ('string'===typeof(inputEl)){
 		inputEl=jQuery("#" + inputEl);
@@ -41,8 +48,14 @@ function btTranslate(inputEl, parentEl, useSelection, sourceLang, targetLang){
 	if ('object'===typeof(sourceText)){
 		sourceText=sourceText.toString();
 	}
-	if (!(sourceText)){sourceText='Please select some text and press translate again: the results will appear here.';}
-	return btGoogleGet(parentEl, sourceText, sourceLang, targetLang);
+	if ( ! (sourceText) ) {
+		if (replaceTarget) {
+			return '';
+		} else {
+			sourceText='Please select some text and press translate again: the results will appear here.';
+		}
+	}
+	return btGoogleGet(parentEl, sourceText, sourceLang, targetLang, replaceTarget);
 }
 
 /**
@@ -162,6 +175,10 @@ function btGetSelected(el, w, d, cstack){
 		//if the current element is an iframe there might be selected text on the iframe window
 		//which is not detected by the previous code
 		if (el){
+			if (! el.tagName){
+				//console.log('Translation object not found');
+				return '';  //not an element
+			}
 			switch (el.tagName.toUpperCase()){
 				case "": return '';  //avoid accidental translation of entire body when nothing is selected
 				case "HTML": return '';  //avoid accidental translation of entire body when nothing is selected
@@ -189,6 +206,34 @@ function btGetSelected(el, w, d, cstack){
 	}//if !t
 	return t;
 }//func
+
+function btUpdateTarget(el, txt, cstack){
+	if (!cstack){cstack=0;}
+	if (el){
+		switch (el.tagName.toUpperCase()){
+			case "": return false;  //avoid accidental translation of entire body when nothing is selected
+			case "HTML": return false;  //avoid accidental translation of entire body when nothing is selected
+			case "BODY": return false;  //avoid accidental translation of entire body when nothing is selected
+			case "INPUT": el.value=txt; return true;
+			case "TEXTAREA":
+				el.value=txt;
+				el.innerHTML=txt;
+				return true;
+			case "IFRAME":
+				if (cstack <2 ) {
+					//attempt to find the document in the iframe
+					t = btUpdateTarget(el, el.contentWindow, el.contentDocument, cstack+1);
+					//if not updated set the iframe current content
+					if (! t || ''===t){
+						el.contentDocument.body.innerText = txt;
+					}
+					return true;
+	 			}
+				return false;
+			default: el.innerText = txt; return true;
+		}//case
+	}//if el
+}
 
 /**
  * extract translation from Google translate JSON-like response:
@@ -243,9 +288,10 @@ function btExtractText( str ){
  * @param {string} q - text to translate
  * @param {string} sourceLang - source language, defaults to 'auto'
  * @param {string} targetLang - target language, defaults to document language
+ * @param {element} replaceTarget - element to replace text (instead of translate element)
  * @return {bool} does not return translation result, only launches async call
  */
-function btGoogleGet(parentEl, q, sourceLang, targetLang) {
+function btGoogleGet(parentEl, q, sourceLang, targetLang, replaceTarget) {
 		//rewrite to remove parameter default values for Internet Explorer compatiblity
 		if (!parentEl){parentEl=jQuery("#wpadminbar");}
 		if (!q){q='Please select some text and press translate again: the results will appear here.';}
@@ -295,13 +341,16 @@ function btGoogleGet(parentEl, q, sourceLang, targetLang) {
 					translateResult=btExtractText(data);
 				}
 
-
 				var element = jQuery('#bTranslateResult');
 				element.text(translateResult);
 				element.html(element.text().replace(/\\n\\n/g,'<br />').replace(/\\n/g,'<br />'));
-				element = jQuery('#bTranslateContainer').detach();
-				parentEl.append(element);
-				element.css("display","block");
+				if (replaceTarget){
+					btUpdateTarget(replaceTarget, element.text());
+				} else {
+          element = jQuery('#bTranslateContainer').detach();
+          parentEl.append(element);
+          element.css("display","block");
+				}
 				// Send warning log message if response took longer than 2 seconds
 				/*
 				var msAfterAjaxCall = new Date().getTime();
@@ -314,7 +363,6 @@ function btGoogleGet(parentEl, q, sourceLang, targetLang) {
 		.fail(function (jqXHR, textStatus, errorThrown) {
 				// Request failed. may need to Show error message to user.
 				// errorThrown has error message, or "timeout" in case of timeout.
-				debugger
 				var translateResult='';
 				switch (textStatus){
 					case "parsererror": break;  //expected JSON error, ignore
@@ -379,6 +427,21 @@ function mapGoogleLanguageCode(language){
 	}
 }
 
+function translateNewProduct(targetLang){
+	var elementsToTranslate = new Array('title', 'content', 'excerpt', 'name', 'slug', 'description');
+	for (var i = 0, len = elementsToTranslate.length; i < len; i++) {
+		var inputEl=jQuery("#" + elementsToTranslate[i]);
+		try{
+			var nestedEl = inputEl[0];
+			if (nestedEl){
+				inputEl = inputEl[0];
+			}
+		} catch(e){}
+		if (inputEl){
+			btTranslate(inputEl, '', false, 'auto', targetLang, inputEl);
+		}
+	}
+}
 
 /**
 	* attach translation action to menu bar
@@ -390,4 +453,11 @@ jQuery(document).ready(function($) {
 			btTranslate();
 	});
 
+  /* experimental, uncomment for auto-translation of new Posts created by Polylang
+	var urlParams = new URLSearchParams(window.location.search);
+	if (urlParams.has('new_lang')){
+		var targetLang=urlParams.get('new_lang');
+		translateNewProduct(targetLang);
+	}
+  */
 });

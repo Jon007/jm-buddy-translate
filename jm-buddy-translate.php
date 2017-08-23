@@ -439,4 +439,3 @@ if ( ! class_exists( 'JM_Buddy_Translate' ) ) {
 
 
 JM_Buddy_Translate::get_instance();
-?>
