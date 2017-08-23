@@ -12,10 +12,10 @@
  * Description: Adds Translate button to the WordPress admin bar to translate any selected text. Adds Translate buttons to BuddyPress and bbPress messages.  Text is translated to current user locale set in user profile Language.
 * Tags: user, translate, language, translate, back-end, front-end, buddypress
  * Contributors: jonathanmoorebcsorg
- * Version: 1.0.8
- * Stable Tag: 1.0.8
+ * Version: 1.0.9
+ * Stable Tag: 1.0.9
  * Requires At Least: 4.7
- * Tested Up To: 4.7.4
+ * Tested Up To: 4.8.1
  * Version Components: {major}.{minor}.{bugfix}-{stage}{level}
  *
  *	{major}		Major code changes / re-writes or significant feature changes.

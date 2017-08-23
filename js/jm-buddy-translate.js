@@ -51,16 +51,18 @@ function btTranslate(inputEl, parentEl, useSelection, sourceLang, targetLang){
  * @return {bool} success (does not return translation result, only launches async call)
  */
 function btnTranslatebbp(el){
-	messageParent=el.parents('li');
+	var messageParent=el.closest('li');
 	if (messageParent){
 		//find reply content
-		messageDetail=messageParent.find('.bbp-reply-content');
+		var messageDetail=messageParent.find('.bbp-reply-content');
 		if ( (messageDetail) && (messageDetail.length>0) ) {
 			el=messageDetail[0];
 		}	else{
 			//if not reply content, fallback to parent
-			el=messageParent[0];				
+			el=messageParent[0];
 		}
+		var elmeta=messageParent.find('.bbp-meta');
+		if (elmeta){messageParent=elmeta;}
 		return btTranslate(el, messageParent);
 	}else{
 		//no activity parent? reset to document
@@ -96,7 +98,7 @@ function btnTranslateMessage(el){
 		return btTranslate(el);
 	}
 }
-	
+
 /**
  * called from Transate BuddyPress activity button, find and translate activity detail
  * @param {element} el - current element (eg button that was clicked)
@@ -181,15 +183,15 @@ function btGetSelected(el, w, d, cstack){
 						}
 					}
 					return t;
-				default: t = el.innerText;				
+				default: t = el.innerText;
 			}//case
 		}//if el
 	}//if !t
 	return t;
 }//func
-	
+
 /**
- * extract translation from Google translate JSON-like response: 
+ * extract translation from Google translate JSON-like response:
  * JQuery fails to parse due to trailing blank elements so here a regex approach is used
  * @param {string} str - Google translate JSON-like response
  * @return {string} extracted translation string
@@ -217,9 +219,9 @@ function btExtractText( str ){
 	}
 	//remove the last matches which are language codes...
 	if (matchResult.length<3) {
-		ret += matchResult[0]; 
+		ret += matchResult[0];
 	} else {
-		for (i = 0; i < matchResult.length-3; i=i+skip) { 
+		for (i = 0; i < matchResult.length-3; i=i+skip) {
 			//depending on usage a different treatment might be wanted for line breaks
 			//ret += matchResult[i].toString().replace(/\\n/g, "<br/>");
 			//remove starting/trailing quotes on the match and concatenate
@@ -234,7 +236,7 @@ function btExtractText( str ){
 	}
 	return ret;
 }
-	
+
 /**
  * Get translation from google.
  * @param {element} parentEl - optional element to use as parent to append translation result
@@ -253,8 +255,8 @@ function btGoogleGet(parentEl, q, sourceLang, targetLang) {
 		startSpinner();
 		/* LanguageApp would be the Google Apps way to do it */
 		//var translatedText = LanguageApp.translate(sourceText, sourceLang, targetLang)
-		/* URL Option */  
-		var url = "//translate.googleapis.com/translate_a/single?client=gtx&sl=" 
+		/* URL Option */
+		var url = "//translate.googleapis.com/translate_a/single?client=gtx&sl="
 							+ sourceLang + "&tl=" + targetLang + "&dt=t&q=" + encodeURI(q);
 		//example url: "https://translate.googleapis.com/translate_a/single?client=gtx&sl=en&tl=es&dt=t&q=translate%20me"
 		var href="http://translate.google.cn/#" + mapGoogleLanguageCode(sourceLang) + '/' + mapGoogleLanguageCode(targetLang) + '/' + encodeURI(q);
@@ -275,7 +277,7 @@ function btGoogleGet(parentEl, q, sourceLang, targetLang) {
 					data=data[0];
 				}
 				if (jQuery.isArray(data)){
-					for (i = 0; i < data.length; i=i+1) { 
+					for (i = 0; i < data.length; i=i+1) {
 						//depending on usage a different treatment might be wanted for line breaks
 						//ret += matchResult[i].toString().replace(/\\n/g, "<br/>");
 						//remove starting/trailing quotes on the match and concatenate
@@ -293,7 +295,7 @@ function btGoogleGet(parentEl, q, sourceLang, targetLang) {
 					translateResult=btExtractText(data);
 				}
 
-			
+
 				var element = jQuery('#bTranslateResult');
 				element.text(translateResult);
 				element.html(element.text().replace(/\\n\\n/g,'<br />').replace(/\\n/g,'<br />'));
@@ -310,18 +312,18 @@ function btGoogleGet(parentEl, q, sourceLang, targetLang) {
 				*/
 		})
 		.fail(function (jqXHR, textStatus, errorThrown) {
-				// Request failed. may need to Show error message to user. 
+				// Request failed. may need to Show error message to user.
 				// errorThrown has error message, or "timeout" in case of timeout.
 				debugger
 				var translateResult='';
 				switch (textStatus){
 					case "parsererror": break;  //expected JSON error, ignore
 					case "timeout": translateResult='Translation timed out.\n'; break;
-					default: translateResult=' Failed on: ' + textStatus + '\n';				
+					default: translateResult=' Failed on: ' + textStatus + '\n';
 				}//case
 				if ("timeout"!==textStatus){
-					//request is expected to fail as google returns trailing empty JSON 
-					//so we use RegEx to extract the text from the response 
+					//request is expected to fail as google returns trailing empty JSON
+					//so we use RegEx to extract the text from the response
 					translateResult+=btExtractText(jqXHR.responseText);
 				}
 				var element = jQuery('#bTranslateResult');
@@ -334,7 +336,7 @@ function btGoogleGet(parentEl, q, sourceLang, targetLang) {
 		.always(function(jqXHR, textStatus, errorThrown) {
 				// finished eg Hide spinner image
 				stopSpinner();
-		});	
+		});
 	return true;
 }
 
@@ -342,9 +344,9 @@ function btGoogleGet(parentEl, q, sourceLang, targetLang) {
  * spin the translation logo (on start of translate ajax call)
  */
 function startSpinner(){
-	jQuery('#translate-icon').addClass('spinner');  
+	jQuery('#translate-icon').addClass('spinner');
 	//spinner class has this type of effect
-	//jQuery('#translate-icon').css('animation', 'spin 3s linear infinite'); 
+	//jQuery('#translate-icon').css('animation', 'spin 3s linear infinite');
 }
 /**
  * stop spinning the translation logo (on end of translate ajax call)
@@ -354,9 +356,9 @@ function stopSpinner(){
 }
 
 /**
- * convert Wordpress language code (eg 'en-US') to google language code (eg 'en') 
+ * convert Wordpress language code (eg 'en-US') to google language code (eg 'en')
  * for most languages except chinese, google translate links need 2 letter language codes
- * @param {string} language - input language string 
+ * @param {string} language - input language string
  * @return {string} mapped language code
  */
 function mapGoogleLanguageCode(language){
