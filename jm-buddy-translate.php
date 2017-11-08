@@ -15,7 +15,7 @@
  * Version: 1.0.9
  * Stable Tag: 1.0.9
  * Requires At Least: 4.7
- * Tested Up To: 4.8.1
+ * Tested Up To: 4.8.3
  * Version Components: {major}.{minor}.{bugfix}-{stage}{level}
  *
  *	{major}		Major code changes / re-writes or significant feature changes.
