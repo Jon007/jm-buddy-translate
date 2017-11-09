@@ -7,7 +7,7 @@ Quick and easy translate BuddyPress and bbPress messages or any selected text.
 **Contributors:** [jonathanmoorebcsorg](https://profiles.wordpress.org/jonathanmoorebcsorg)  
 **Tags:** [locale](https://wordpress.org/plugins/tags/locale), [language](https://wordpress.org/plugins/tags/language), [translate](https://wordpress.org/plugins/tags/translate), [back-end](https://wordpress.org/plugins/tags/back-end), [front-end](https://wordpress.org/plugins/tags/front-end), [buddypress](https://wordpress.org/plugins/tags/buddypress), [bbPress](https://wordpress.org/plugins/tags/bbPress)  
 **Requires at least:** 4.7  
-**Tested up to:** 4.8.1  
+**Tested up to:** 4.8.3  
 **Stable tag:** trunk (master)  
 **License:** [GPLv3](https://www.gnu.org/licenses/gpl.txt)  
 **Donate link:** http://paypal.me/jonathanmoorebcsorg  

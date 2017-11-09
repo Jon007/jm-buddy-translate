@@ -77,6 +77,10 @@ Note that whatever the problem, the translation result panel link to Google Tran
 
 == Changelog ==
 
+= 1.0.9 =
+* formatting improvements for bbPress
+* stub code for auto-translate posts (uncomment call at end of .js file to enable)
+
 = 1.0.8 =
 * updates to documentation and packaging
 
